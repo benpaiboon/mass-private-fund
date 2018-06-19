@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'core/libs/header.libs.php' ?>
+<head>
+  <?php include 'core/libs/header.libs.php'; ?>
+</head>
+
+<?php 
+  include 'config/db.php';
+  include 'config/inst_conf.php';
+?>
 
 <body>
   <?php 
-    include 'config/db.php';
-    include 'config/inst_conf.php';
-    
     // Insert CSV to DB
     insertDataToInstDB($conn, $instCSVData, $instTable, $instDbField);
 

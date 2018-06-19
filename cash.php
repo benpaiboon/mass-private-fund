@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'core/libs/header.libs.php' ?>
+<head>
+  <?php include 'core/libs/header.libs.php'; ?>
+</head>
+
+<?php 
+  include 'config/db.php';
+  include 'config/cash_conf.php';
+?>
 
 <body>
   <?php 
-    include 'config/db.php';
-    include 'config/cash_conf.php';
-    
     // Insert CSV to DB
     insertDataToCashDB($conn, $cashCSVData, $cashTable, $cashDbField);
 

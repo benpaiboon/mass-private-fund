@@ -1,52 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'core/libs/header.libs.php' ?>
+<head>
+  <?php include 'core/libs/header.libs.php'; ?>
+</head>
+
+<?php 
+  include 'config/db.php';
+  include 'config/inst_conf.php';
+?>
 
 <body>
   <h1>Welcome to Mass Private Fund</h1>
-  <div id="donutChart" style="width:450px;height:300px;margin:0 auto"></div>
+  <?php 
+    $sql = "SELECT instrument,avg_cost FROM daily_val_inst WHERE port_id = 'P1800001'";
+    $result = $conn->query($sql);
+    $portRows = [];
+
+    if ($result->num_rows > 0) {    
+      while($row = $result->fetch_assoc()) {
+        array_push($portRows, $row);  
+      }
+    }
+    else {
+      echo "0 results";
+    }
+  ?>
+  <div id="donutChart" style="width:450px;height:300px;"></div>
 </body>
 
 <script>
   $(document).ready(function () {
-    var stock = ['AAV', 'BBL', 'SCB', 'KBANK', 'COL', 'JAS', 'S', 'VNG'];
-    var count = 0;
-    var data = [];
+    let stock = <?php echo json_encode($portRows); ?>;
+    if(stock.length === 0){
+      alert("No data in SQL");
+      console.log('No data in SQL');
+    }
+    else{
+      let count = 0;
+      let dataSet = [];
 
-    stock.forEach(element => {
-      var dataObj = { label: element, data: Math.random(), color: count }
-      count += 1;
-      data.push(dataObj);
-    });
+      stock.forEach(element => {
+        let dataObj = { label: element.instrument, data: element.avg_cost, color: count }
+        count += 2;
+        dataSet.push(dataObj);
+      });
 
-    console.log(data);
-
-    // var dataSet = [
-    //   { label: "Asia", data: 4119630000, color: 0 },
-    //   { label: "Latin America", data: 590950000, color: 1 },
-    //   { label: "Africa", data: 1012960000, color: 2 },
-    //   { label: "Oceania", data: 35100000, color: 3 },
-    //   { label: "Europe", data: 727080000, color: 4 },
-    //   { label: "North America", data: 344120000, color: 5 }
-    // ];
-
-    var options = {
-      series: {
-        pie: {
-          show: true,
-          innerRadius: 0.4,
-          label: {
-            show: true
+      let options = {
+        series: {
+          pie: {
+            show: true,
+            innerRadius: 0.4,
+            label: {
+              show: true
+            }
           }
+        },
+        legend: {
+          show: false
         }
-      },
-      legend: {
-        show: false
-      }
-    };
+      };
 
-    $.plot($("#donutChart"), data, options);
+      $.plot($("#donutChart"), dataSet, options);
+    }
 
   });
 </script>

@@ -16,7 +16,7 @@
     insertDataToInstDB($conn, $instCSVData, $instTable, $instDbField);
 
     // Show Data After Inserted
-    $sql = "SELECT * FROM daily_val_inst";
+    $sql = "SELECT * FROM fact_privatefund_instrument";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

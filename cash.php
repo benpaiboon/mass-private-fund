@@ -16,7 +16,7 @@
     insertDataToCashDB($conn, $cashCSVData, $cashTable, $cashDbField);
 
     // Show Data After Inserted
-    $sql = "SELECT * FROM daily_val_cash";
+    $sql = "SELECT * FROM fact_privatefund_cash";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

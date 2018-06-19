@@ -1,11 +1,11 @@
 <?php 
   
-  include 'func/functions.php';
+  include 'core/func/functions.php';
   
   // Init Important Variables For Insert
   $cashTable = 'daily_val_cash';
   $cashDbField = 'id,date_port,port_id,title,market_value,proportion_pct';
-  $folderForRead = 'csv_resources/';
+  $folderForRead = 'assets/csv_resources/';
   $stringForSearchFile = 'daily_val_cash';
   
   // Fired Functions

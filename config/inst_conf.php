@@ -1,11 +1,11 @@
 <?php 
   
-  include 'func/functions.php';
+  include 'core/func/functions.php';
   
   // Init Important Variables For Insert
   $instTable = 'daily_val_inst';
   $instDbField = 'id,date_port,port_id,sector,securities,instrument,unit,avg_cost_price,avg_cost,market_price,market_value,unrealized_profit_lost,unrealized_profit_lost_pct,proportion_pct';
-  $folderForRead = 'csv_resources/';
+  $folderForRead = 'assets/csv_resources/';
   $stringForSearchFile = 'daily_val_inst';
   
   // Fired Functions

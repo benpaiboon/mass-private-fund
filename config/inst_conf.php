@@ -1,6 +1,6 @@
 <?php 
   
-  include 'core/func/functions.php';
+  include 'core/libs/functions.php';
   
   // Init Important Variables For Insert
   $instTable = 'daily_val_inst';

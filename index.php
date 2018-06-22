@@ -7,6 +7,7 @@
   <h1>Welcome to Mass Private Fund</h1>
   <a href="cash.php">Read Cash File</a> |
   <a href="instrument.php">Read Instrument File</a> |
+  <a href="readall.php">Read All File</a> |
   <a href="donutchart.php">Donut Chart</a>
 </body>
 

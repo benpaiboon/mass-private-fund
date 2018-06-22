@@ -8,7 +8,8 @@
           array_push($files, $file);
         }
         closedir($dh);
-        return $files;
+        $cashFileOutput = array_slice($files, 2);
+        return $cashFileOutput;
       }
     }
   }

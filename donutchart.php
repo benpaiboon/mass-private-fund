@@ -13,7 +13,7 @@
 <body>
   <h1>Welcome to Mass Private Fund</h1>
   <?php 
-    $sql = "SELECT instrument,avg_cost FROM fact_privatefund_instrument WHERE port_id = 'P1800001'";
+    $sql = "SELECT instrument,avg_cost FROM fact_privatefund_instrument WHERE inst_port_id = 'P1800001'";
     $result = $conn->query($sql);
     $portRows = [];
 

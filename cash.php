@@ -36,11 +36,11 @@
         // print_r($row);
         // echo "</pre>";
         echo "<tr>";
-        echo "<td>".$row['date_port']."</td>";
-        echo "<td>".$row['port_id']."</td>";
+        echo "<td>".$row['cash_date']."</td>";
+        echo "<td>".$row['cash_port_id']."</td>";
         echo "<td>".$row['title']."</td>";
-        echo "<td>".$row['market_value']."</td>";
-        echo "<td>".$row['proportion_pct']."</td>";
+        echo "<td>".$row['cash_market_value']."</td>";
+        echo "<td>".$row['cash_proportion_pct']."</td>";
         echo "</tr>";
       }
       echo "</tbody>";
